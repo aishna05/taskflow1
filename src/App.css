@@ -1,38 +1,182 @@
-.App {
+/* Enhanced Base Styles */
+:root {
+  --black: #000000;
+  --dark-teal: #014d4d;
+  --light-teal: #26a69a;
+  --text-light: #ffffff;
+  --text-dark: #e0f7f7;
+  --button-gradient: linear-gradient(to right, #015151, #01a3a4);
+  --font-cursive: 'Brush Script MT', cursive;
+}
+
+.light {
+  --bg: #ffffff;
+  --text: var(--black);
+  --card-bg: #e0f7f7;
+}
+
+.dark {
+  --bg: var(--black);
+  --text: var(--text-dark);
+  --card-bg: #013636;
+}
+
+body, .app-container {
+  /* background-color: var(--bg); */
+  background-color: black;
+  color:white;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  transition: background-color 0.4s, color 0.4s;
+  line-height: 1.6;
+  scroll-behavior: hidden ;
+}
+
+/* Main heading */
+.main-heading, h1 {
   text-align: center;
+  font-family: var(--font-cursive);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--light-teal);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-heading:hover {
+  transform: scale(1.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Buttons */
+button {
+  padding: 10px 20px;
+  background: var(--button-gradient);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+button:hover {
+  background: linear-gradient(to right, #01a3a4, #017070);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Inputs and Selects */
+input, select, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--dark-teal);
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #263238;
+  color: #e0f7f7;
+}
+
+/* Containers */
+.container, form {
+  max-width: 900px;
+  margin: auto;
+  background-color: #1e1e1e;
+  border: 1px solid #26a69a;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Task Card */
+.task-card {
+  background-color: #1e1e1e;
+  border: 1px solid #26a69a;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  width:40%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Timer Section */
+.timer h4 {
+  margin: 0.5rem 0;
+  color: var(--light-teal);
+  font-size: 1.2rem;
+}
+
+/* Mode Toggle */
+.mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(45deg, #004d40, #26a69a);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.mode-toggle:hover {
+  background: linear-gradient(45deg, #26a69a, #004d40);
+  transform: scale(1.05);
+}
+
+/* Theme Switch */
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* Utility */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+.tconatiner{
+  display: flex; 
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-heading, h1 {
+    font-size: 2.2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container, form, .task-card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  button, input, select {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .mode-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 0.8rem;
   }
 }

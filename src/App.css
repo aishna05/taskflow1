@@ -1,166 +1,153 @@
-/* Enhanced Base Styles */
 :root {
-  --black: #000000;
-  --dark-teal: #014d4d;
-  --light-teal: #26a69a;
-  --text-light: #ffffff;
-  --text-dark: #e0f7f7;
-  --button-gradient: linear-gradient(to right, #015151, #01a3a4);
+  --bg-light: #E6E8EA;          /* Light muted gray background */
+  --card-bg: #F7F8F9;           /* Slightly darker soft gray cards */
+  --text-main: #4A4E58;         /* Dark slate gray text */
+  --text-muted: #7A7F8C;        /* Medium gray for secondary text */
+  --accent: #9BB7D4;            /* Muted pastel blue accent */
+  --accent-secondary: #D8A39D;  /* Dusty coral accent */
+  --border-light: #CBD0D7;      /* Soft border gray */
+  --radius: 12px;
+  --shadow-light: 0 4px 10px rgba(74, 78, 88, 0.1); /* subtle shadow with gray tint */
   --font-cursive: 'Brush Script MT', cursive;
 }
 
-.light {
-  --bg: #ffffff;
-  --text: var(--black);
-  --card-bg: #e0f7f7;
-}
-
-.dark {
-  --bg: var(--black);
-  --text: var(--text-dark);
-  --card-bg: #013636;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body, .app-container {
-  /* background-color: var(--bg); */
-  background-color: black;
-  color:white;
+  background-color: var(--bg-light);
+  color: var(--text-main);
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
-  transition: background-color 0.4s, color 0.4s;
+  min-height: 100vh;
   line-height: 1.6;
-  scroll-behavior: hidden ;
 }
 
-/* Main heading */
+/* Heading */
 .main-heading, h1 {
   text-align: center;
   font-family: var(--font-cursive);
-  font-size: 3rem;
+  font-size: 2.8rem;
+  color: var(--accent);
   margin-bottom: 2rem;
-  color: var(--light-teal);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.main-heading:hover {
-  transform: scale(1.05);
-}
-
-/* Buttons */
-button {
-  padding: 10px 20px;
-  background: var(--button-gradient);
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-}
-
-button:hover {
-  background: linear-gradient(to right, #01a3a4, #017070);
-  transform: translateY(-2px) scale(1.05);
-}
-
-/* Inputs and Selects */
-input, select, textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--dark-teal);
-  margin: 10px 0;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #263238;
-  color: #e0f7f7;
+  user-select: none;
 }
 
 /* Containers */
 .container, form {
   max-width: 900px;
   margin: auto;
-  background-color: #1e1e1e;
-  border: 1px solid #26a69a;
-  border-radius: 15px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-light);
   margin-bottom: 2rem;
 }
 
+/* Form Labels */
 form label {
-  font-weight: bold;
+  font-weight: 600;
   display: block;
   margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
-/* Task Card */
+/* Inputs & Selects */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  background-color: #f0f2f5;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  margin : 10px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(155, 183, 212, 0.4);
+}
+
+button:hover {
+  background-color: var(--accent-secondary);
+  box-shadow: 0 6px 14px rgba(216, 163, 157, 0.5);
+}
+
+/* Task Cards */
 .task-card {
-  background-color: #1e1e1e;
-  border: 1px solid #26a69a;
-  border-radius: 15px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  width:auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s ease;
+  color: var(--text-main);
 }
 
 .task-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(155, 183, 212, 0.2);
 }
 
-/* Timer Section */
+/* Task Container */
+.tcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+}
+
+/* Timer */
 .timer h4 {
-  margin: 0.5rem 0;
-  color: var(--light-teal);
-  font-size: 1.2rem;
+  color: var(--accent);
+  font-size: 1.1rem;
 }
 
-/* Mode Toggle */
+/* Mode Toggle Button */
 .mode-toggle {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: linear-gradient(45deg, #004d40, #26a69a);
-  color: white;
-  border: none;
+  background: var(--card-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   padding: 0.5rem 1rem;
-  border-radius: 10px;
+  border-radius: var(--radius);
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(155, 183, 212, 0.3);
 }
 
 .mode-toggle:hover {
-  background: linear-gradient(45deg, #26a69a, #004d40);
-  transform: scale(1.05);
+  background-color: var(--accent-secondary);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(216, 163, 157, 0.5);
 }
 
-/* Theme Switch */
-.theme-toggle {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-/* Utility */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
-.tconatiner{
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-}
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .main-heading, h1 {
+  .main-heading {
     font-size: 2.2rem;
   }
 
@@ -172,11 +159,5 @@ html, body {
   button, input, select {
     width: 100%;
     margin: 8px 0;
-  }
-
-  .mode-toggle {
-    top: 0.5rem;
-    right: 0.5rem;
-    padding: 0.4rem 0.8rem;
   }
 }

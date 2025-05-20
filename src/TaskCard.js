@@ -39,7 +39,7 @@ function TaskCard({ task, onEditTask, onDeleteTask, onUpdate }) {
 
 
       <button onClick={handleEdit}>Edit</button>
-      <button  style={{margin : "10px"}} onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
 
      <div style={{ marginTop: "10px" }}>
         <Timer task={task} />
